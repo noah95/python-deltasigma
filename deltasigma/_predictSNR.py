@@ -243,7 +243,7 @@ def powerGain(num, den, Nimp=100):
     unstable = False
     _, (imp, ) = dimpulse((num, den, 1), t=np.linspace(0, Nimp, Nimp))
     if np.sum(abs(imp[Nimp - 11:Nimp])) < 1e-08 and Nimp > 50:
-        Nimp = np.round(Nimp/1.3)
+        Nimp = int(np.round(Nimp/1.3))
     else:
         while np.sum(abs(imp[Nimp - 11:Nimp])) > 1e-06:
             Nimp = Nimp*2
